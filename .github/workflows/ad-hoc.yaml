@@ -12,6 +12,12 @@ jobs:
       - name: Test connections with ping module
         run: |
           ansible all --list-hosts -i /home/shruti/ansible/inventory.yaml
+      - name: Add SSH key
+        run: |
+            mkdir -p ~/.ssh
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+            chmod 600 ~/.ssh/id_rsa
+            ssh-keyscan -H ${{ secrets.HOST_IP }} >> ~/.ssh/known_hosts    
 
       - name: Gather facts (more comprehensive test)
         run: |
