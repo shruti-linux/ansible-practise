@@ -15,6 +15,6 @@ jobs:
 
       - name: Gather facts (more comprehensive test)
         run: |
-          sudo ansible all -m yum -a "name=git state=present" -i /home/shruti/ansible/inventory.yaml
+        
           sudo ansible all -m user -a "name=newbie state=present" -i /home/shruti/ansible/inventory.yaml
           ansible all -m "id newbie" -i /home/shruti/ansible/inventory.yaml
