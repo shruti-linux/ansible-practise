@@ -6,7 +6,7 @@ on:
 
 jobs:
   generate-ansible-cfg:
-    runs-on: [ prflow ]
+    runs-on: [ ansible-master ]
 
     steps:
 
