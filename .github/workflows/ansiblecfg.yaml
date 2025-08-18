@@ -1,0 +1,49 @@
+
+name:  Configuration ansible.cfg 
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-ansible-cfg:
+    runs-on: [ prflow ]
+
+    steps:
+
+    
+
+      - name: Generate ansible.cfg
+        run: |
+          sudo -u shruti bash -c 'cat > /home/shruti/ansible/ansible.cfg' << 'EOF'
+          [defaults]
+          inventory      = /home/shruti/ansible/inventory/inventory.yaml
+          roles_path    = /home/shruti/ansible/roles
+          host_key_checking = False
+          remote_user = shruti
+          private_key_file = /home/shruti/.ssh/id_rsa
+          log_path = /home/shruti/ansible/ansible.log
+          forks = 5
+          gathering = smart
+          fact_caching = jsonfile
+          fact_caching_connection = /home/shruti/ansible/facts_cache
+          fact_caching_timeout = 86400  # 24 hours
+
+          [privilege_escalation]
+          become = True
+          become_method = sudo
+          become_user = root
+          become_ask_pass = False
+
+          
+
+      - name: Set proper permissions
+        run: |
+          sudo chown shruti:shruti /home/shruti/ansible/ansible.cfg
+          sudo chmod 644 /home/shruti/ansible/ansible.cfg
+
+      - name: Verify configuration
+        run: |
+          echo "Ansible configuration:"
+          sudo -u shruti ls -la /home/shruti/ansible/ansible.cfg
+          echo -e "\nContents:"
+          sudo -u shruti cat /home/shruti/ansible/ansible.cfg
