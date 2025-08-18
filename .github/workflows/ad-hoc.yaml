@@ -15,7 +15,7 @@ jobs:
       - name: Add SSH key
         run: |
             mkdir -p ~/.ssh
-            echo "/home/shruti/.ssh/id_rsa > ${{ secrets.SSH_PRIVATE_KEY }}"
+            "${{ secrets.private key }}" > ~/.ssh/id_rsa
             
             
 
