@@ -1,4 +1,4 @@
-hname: Test Ansible Connection
+name: Test Ansible Connection
 
 on:
   workflow_dispatch:
