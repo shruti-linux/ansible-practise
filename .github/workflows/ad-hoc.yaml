@@ -11,7 +11,7 @@ jobs:
     
       - name: Test connections with ping module
         run: |
-          ansible all --list-hosts -i /home/shruti/ansible/inventory.yaml
+          ansible all --list-hosts -i /home/shruti/ansible/inventory.yaml  
       - name: Add SSH key
         run: |
             mkdir -p ~/.ssh
@@ -23,5 +23,5 @@ jobs:
       - name: Gather facts (more comprehensive test)
         run: |
         
-          sudo ansible all -m user -a "name=newbie state=present" -i /home/shruti/ansible/inventory.yaml
+          ansible all -m user -a "name=newbie state=present" -i /home/shruti/ansible/inventory.yaml  --private-key=~/.ssh/id_rsa
           ansible all -m "id newbie" -i /home/shruti/ansible/inventory.yaml
