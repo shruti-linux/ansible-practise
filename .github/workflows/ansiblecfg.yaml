@@ -34,6 +34,10 @@ jobs:
           become_user = root
           become_ask_pass = False
 
+          [ssh_connection]
+          ssh_args = -o ControlMaster=auto -o ControlPersist=60s -o ConnectTimeout=10
+          control_path = /home/shruti/.ssh/id_rsa-%%r@%%h:%%p
+          EOF
           
 
       - name: Set proper permissions
