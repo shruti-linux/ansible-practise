@@ -12,7 +12,7 @@ jobs:
       - name: Gather facts and test user creation
         run: |
           ansible all -m ping -i /home/shruti/ansible/inventory.yaml
-          ansible all -m user -a "name=newbie state=present" -i /home/shruti/ansible/inventory.yaml --become
+          ansible all -m user -a "name=newbie state=absent" -i /home/shruti/ansible/inventory.yaml --become
           ansible all -m shell -a "id newbie" -i /home/shruti/ansible/inventory.yaml
 
 
