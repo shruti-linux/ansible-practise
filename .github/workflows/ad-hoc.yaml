@@ -11,16 +11,19 @@ jobs:
     
       - name: Test connections with ping module
         run: |
-          ansible all --list-hosts -i /home/shruti/ansible/inventory.yaml  
-      - name: Add SSH key
+          ansible all --list-hosts -i /home/shruti/ansible/inventory.yaml
         env:
-          ANSIBLE_HOST_KEY_CHECKING: False
-          ANSIBLE_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-            
+         ANSIBLE_HOST_KEY_CHECKING: False
+         ANSIBLE_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
-            
-      - name: Gather facts (more comprehensive test)
+      - name: Add SSH key
         run: |
-        
-          ansible all -m user -a "name=newbie state=present" -i /home/shruti/ansible/inventory.yaml  
-          ansible all -m "id newbie" -i /home/shruti/ansible/inventory.yaml
+         mkdir -p ~/.ssh
+         echo "$ANSIBLE_PRIVATE_KEY" > ~/.ssh/id_rsa
+         chmod 600 ~/.ssh/id_rsa
+
+      - name: Gather facts and test user creation
+        run: |
+          ansible all -m ping -i /home/shruti/ansible/inventory.yaml
+          ansible all -m user -a "name=newbie state=present" -i /home/shruti/ansible/inventory.yaml
+          ansible all -m shell -a "id newbie" -i /home/shruti/ansible/inventory.yaml
