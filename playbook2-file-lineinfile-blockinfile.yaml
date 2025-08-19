@@ -1,6 +1,6 @@
 ---    
 - name: understanding file module
-  hosts: brazil
+  hosts: db01
   tasks:
   - name: using file module
     file:
