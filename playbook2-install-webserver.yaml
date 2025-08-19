@@ -1,0 +1,19 @@
+---    
+- name: installation web-server and start the service
+  hosts: db01
+  tasks:
+  - name: installation of package
+    yum:
+      name: httpd
+      state: latest
+       
+  - name: creatring  a webpage
+    copy:
+      content: " Hello Everyone from TELUS , we are executing the playbook via GIthub Actions,This is the test page  "
+      dest: /var/www/html/index.html
+       
+  - name: start the service
+    service:
+      name: httpd
+      state: started
+      enabled: true
