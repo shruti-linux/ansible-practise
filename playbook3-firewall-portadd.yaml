@@ -1,0 +1,20 @@
+---    
+- name: Install of firewalld package and start service , also add port number 80 to the firewall.Enabling our website to be visible
+  hosts: db01
+  tasks:
+  - name:  install of firewalld
+    yum:
+      name:  firewalld
+      state: latest
+  - name: activating the service
+    service:
+      name: firewalld
+      state: started
+      enabled: true
+       
+  - name: assigning the port number
+    firewalld :
+      port: 80/tcp
+      permanent: true
+      state: enabled
+      immediate: true
