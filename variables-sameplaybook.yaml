@@ -1,0 +1,20 @@
+---
+- name: expermenting the variables in the same playbook
+  hosts: all
+  vars:
+    pkg: autofs
+    usr: gene
+  tasks:
+  - name: installing the packages  of {{ pkg }}
+    yum:
+      name: "{{ pkg }}"
+      state: latest
+  - name: start the service of {{ pkg }}
+    service:
+      name:  "{{ pkg }}"
+      state: started
+      enabled: true
+  - name:  add a user name  {{ usr }}
+    user:
+      name:  "{{ usr }}"
+      state: present
