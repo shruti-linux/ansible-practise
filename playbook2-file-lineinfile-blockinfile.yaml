@@ -1,0 +1,24 @@
+---    
+- name: understanding file module
+  hosts: brazil
+  tasks:
+  - name: using file module
+    file:
+      path: /home/shruti/file1.txt
+      owner: shruti
+      mode: 644
+      state: touch
+
+  - name: adding a linein the file
+    lineinfile:
+      name:  /home/shruti/file1.txt
+      line:  lets learn the lineinfile module. 
+      state: present
+
+  - name: adding a block in  the file
+    blockinfile:
+      name:  /home/shruti/file1.txt
+      line:  |
+         this is first line in additional block 
+         this is a second line of additional block of text
+      state: present
