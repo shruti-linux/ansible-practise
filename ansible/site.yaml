@@ -1,4 +1,4 @@
 - hosts: all
   become: yes
   roles:
-  - geerlingguy.nginx
+  - /home/shruti/ansible/roles/geerlingguy.nginx
