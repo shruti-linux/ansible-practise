@@ -23,4 +23,4 @@ jobs:
         env:
           ANSIBLE_HOST_KEY_CHECKING: False
         run: |
-          ansible-playbook -i /home/shruti/ansible/inventory.yaml  ansible/site.yaml
+          ansible-playbook -i /home/shruti/ansible/inventory.yaml  home/shruti/actions-runner/_work/ansible-practise/ansible-practise/ansible/site.yaml
