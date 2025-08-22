@@ -1,6 +1,6 @@
 
 - name: Minimal NGINX setup on CentOS 9
-  hosts: node1
+  hosts: db_01
   become: yes
 
   tasks:
