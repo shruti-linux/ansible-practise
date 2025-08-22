@@ -24,6 +24,6 @@ jobs:
           ANSIBLE_HOST_KEY_CHECKING: False
         run: |
           pwd
-          cp /home/shruti/ansible/roles/geerlingguy.nginx/inventory.yaml .
-          cp /home/shruti/ansible/roles/geerlingguy.nginx/ansible.cfg .
+          cp /home/shruti/ansible/inventory.yaml  /home/shruti/ansible/roles/geerlingguy.nginx/inventory.yaml 
+          cp /home/shruti/ansible/ansible.cfg  /home/shruti/ansible/roles/geerlingguy.nginx/ansible.cfg 
           ansible-playbook -i /home/shruti/ansible/inventory.yaml site.yaml site.yaml
