@@ -17,7 +17,7 @@ jobs:
 
       - name: Install Ansible Role
         run: |
-          ansible-galaxy install -p /home/shruti/ansible/roles
+          ansible-galaxy install -p /home/shruti/ansible/roles   geerlingguy.nginx
       
       - name: Run Ansible playbook
         env:
