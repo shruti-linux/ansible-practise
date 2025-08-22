@@ -26,4 +26,4 @@ jobs:
           pwd
           cp /home/shruti/ansible/inventory.yaml  /home/shruti/ansible/roles/inventory.yaml 
           cp /home/shruti/ansible/ansible.cfg  /home/shruti/ansible/roles/ansible.cfg 
-          ansible-playbook -i /home/shruti/ansible/inventory.yaml nginx-role.yaml
+          ansible-playbook -i /home/shruti/ansible/inventory.yaml nginx-roles.yaml
