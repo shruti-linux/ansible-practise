@@ -18,6 +18,6 @@ jobs:
       - name: Execute Ansible Playbook
       
         env:
-          ANSIBLE_VAULT_PASSWORD: ${{ secrets.VAULT_PASSWORD }}
+         VAULT_PASSWORD: ${{ secrets.VAULT_PASSWORD }}
         run: |  
           ansible-vault encrypt playbook1-useradd.yaml 
