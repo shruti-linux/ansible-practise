@@ -18,4 +18,4 @@ jobs:
       - name: Execute Ansible Playbook
      
         run: |  
-           ansible-playbook  playbook2-file-lineinfile-blockinfile.yaml -i /home/shruti/ansible/inventory.yaml --become
+           ansible-playbook /home/shruti/ansible/prometheus.yaml -i /home/shruti/ansible/inventory.yaml --become
