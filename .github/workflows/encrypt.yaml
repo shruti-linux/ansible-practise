@@ -20,4 +20,4 @@ jobs:
         env:
           ANSIBLE_VAULT_PASSWORD: ${{ secrets.VAULT_PASSWORD }}
         run: |  
-          ansible-vault encrypt playbook1-useradd.yaml -i /home/shruti/ansible/inventory.yaml --become
+          ansible-vault encrypt playbook1-useradd.yaml 
